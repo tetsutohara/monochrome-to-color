@@ -1,0 +1,7 @@
+.env
+
+node_modules
+
+index.d.ts
+index.d.ts.map
+index.js.map

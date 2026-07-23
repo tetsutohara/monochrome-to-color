@@ -1,0 +1,194 @@
+:root {
+  --image-height: 50vh;
+  --header-height: 50px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr;
+  height: 100%;
+}
+
+header {
+  background: linear-gradient(to right,
+      rgba(100, 100, 100, 0.8) 50%,
+      red 55%,
+      orange 63%,
+      yellow 71%,
+      green 79%,
+      blue 87%,
+      indigo 95%,
+      violet 100%);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  color: white;
+}
+
+header ul {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header ul a {
+  color: white;
+  text-decoration: none;
+}
+
+header li:first-child {
+  grid-column: 1;
+  justify-self: center;
+}
+
+header li:last-child {
+  grid-column: 3;
+  justify-self: center;
+}
+
+.file-select-container {
+  justify-self: center;
+  margin-top: 3vh;
+}
+
+.buttonNeumorphism {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  aspect-ratio: 1;
+  color: #222;
+  background-color: #efefef;
+  border-radius: 50%;
+  box-shadow:
+    -4px -4px 8px #fff,
+    4px 4px 8px rgb(0 0 0 / 24%);
+}
+
+@media (any-hover: hover) {
+  .buttonNeumorphism {
+    transition: box-shadow 0.2s;
+  }
+
+  .buttonNeumorphism:hover {
+    box-shadow:
+      -2px -2px 4px #fff,
+      2px 2px 4px rgb(0 0 0 / 24%);
+  }
+
+  .buttonNeumorphism:active {
+    background-color: #ebebeb;
+    box-shadow: inset 4px 4px 8px rgb(0 0 0 / 16%);
+  }
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: calc(100vw * 0.05);
+}
+
+.file-icon_circle {
+  fill: orange;
+}
+
+.file-icon_body {
+  fill: green;
+}
+
+#monochrome-img {
+  margin: 12px 16px;
+  display: none;
+}
+
+.file-select-container .icon-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: inherit;
+}
+
+#preview,
+#colorization-preview {
+  height: var(--image-height);
+}
+
+.image-dispaly-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: calc(100vw * 0.05);
+  margin-right: calc(100vw * 0.05);
+  align-items: center;
+  height: calc(100vh - var(--header-height));
+  position: relative;
+  max-height: 80%;
+}
+
+.image-dispaly-container img.arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lisence-container {
+  font-size: x-large;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+  .lisence-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .lisence-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .lisence-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .lisence-container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .lisence-container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .lisence-container {
+    max-width: 1320px;
+  }
+}

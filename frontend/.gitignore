@@ -1,0 +1,15 @@
+.env
+
+/node_modules
+
+/dist/*
+
+# vite config build outputs
+vite.config.d.ts
+vite.config.d.ts.map
+vite.config.js
+vite.config.js.map
+
+# express server files
+/server/*
+!/server/index.ts

@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # -------------------------------------------------------------------
+  # 1. FastAPI Colorization Backend
+  # -------------------------------------------------------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: mono-backend
+    ports:
+      - "8080:8080"
+    networks:
+      - colorizer-net
+
+  # -------------------------------------------------------------------
+  # 2. Express TypeScript Proxy
+  # -------------------------------------------------------------------
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    container_name: mono-proxy
+    ports:
+      - "3000:3000"
+    environment:
+      # Talks directly to backend container over Docker network
+      - FAST_API_URL=http://backend:8080/api/colorize
+    depends_on:
+      - backend
+    networks:
+      - colorizer-net
+
+  # -------------------------------------------------------------------
+  # 3. Vite Frontend
+  # -------------------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: mono-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - proxy
+    networks:
+      - colorizer-net
+
+# Custom internal network allowing containers to resolve each other by name
+networks:
+  colorizer-net:
+    driver: bridge

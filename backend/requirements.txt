@@ -1,0 +1,11 @@
+torch
+scikit-image
+numpy
+matplotlib
+argparse
+pillow
+IPython
+uvicorn
+dotenv
+fastapi
+python-multipart
